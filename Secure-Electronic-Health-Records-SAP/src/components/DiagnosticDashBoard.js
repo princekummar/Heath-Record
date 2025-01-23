@@ -5,18 +5,18 @@ import NavBar_Logout from "./NavBar_Logout";
 import DiagnosticRegistration from "../build/contracts/DiagnosticRegistration.json";
 
 const DiagnosticDashBoard = () => {
-  const { hhNumber } = useParams();
+  const { idNumber } = useParams();
   const navigate = useNavigate();
   const [contract, setContract] = useState(null);
   const [diagnosticDetails, setDiagnosticDetails] = useState(null);
   const [error, setError] = useState(null);
 
   const diagnosticUpload = () => {
-    navigate("/diagnostic/"+hhNumber+"/diagnosticform");
+    navigate("/diagnostic/"+idNumber+"/diagnosticform");
   };
 
   const viewDiagnosticProfile = () => {
-    navigate("/diagnostic/"+hhNumber+"/viewdiagnosticprofile");
+    navigate("/diagnostic/"+idNumber+"/viewdiagnosticprofile");
   };
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const DiagnosticDashBoard = () => {
           setContract(contractInstance);
 
           // Call the getDiagnosticDetails function of the smart contract
-          const result = await contractInstance.methods.getDiagnosticDetails(hhNumber).call();
+          const result = await contractInstance.methods.getDiagnosticDetails(idNumber).call();
           setDiagnosticDetails(result);
         } catch (error) {
           console.error('Error initializing Web3 or fetching diagnostic details:', error);
@@ -47,7 +47,7 @@ const DiagnosticDashBoard = () => {
     };
 
     init();
-  }, [hhNumber]);
+  }, [idNumber]);
 
   return (
     <div>

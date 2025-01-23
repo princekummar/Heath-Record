@@ -14,7 +14,7 @@ const DoctorRegistry = () => {
   const [hospitalLocation, setHospitalLocation] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
-  const [hhNumber, sethhNumber] = useState("");
+  const [idNumber, sethhNumber] = useState("");
   const [specialization, setSpecialization] = useState("");
   const [department, setDepartment] = useState("");
   const [designation, setDesignation] = useState("");
@@ -68,7 +68,7 @@ const DoctorRegistry = () => {
       !dateOfBirth ||
       !gender ||
       !email ||
-      !hhNumber ||
+      !idNumber ||
       !specialization ||
       !department ||
       !designation ||
@@ -82,9 +82,9 @@ const DoctorRegistry = () => {
       return;
     }
 
-    if (hhNumber.length !== 6) {
+    if (idNumber.length !== 6) {
       alert(
-        "You have entered a wrong HH Number. Please enter a 6-digit HH Number."
+        "You have entered a wrong ID Number. Please enter a 6-digit ID Number."
       );
       return;
     }
@@ -123,7 +123,7 @@ const DoctorRegistry = () => {
       );
 
       const isRegDoc = await contract.methods
-        .isRegisteredDoctor(hhNumber)
+        .isRegisteredDoctor(idNumber)
         .call();
 
       if (isRegDoc) {
@@ -138,7 +138,7 @@ const DoctorRegistry = () => {
           dateOfBirth,
           gender,
           email,
-          hhNumber,
+          idNumber,
           specialization,
           department,
           designation,
@@ -168,7 +168,7 @@ const DoctorRegistry = () => {
         sethhNumberError("");
       } else {
         sethhNumber(inputhhNumber);
-        sethhNumberError("Please enter a 6-digit HH Number.");
+        sethhNumberError("Please enter a 6-digit ID Number.");
       }
   };
   
@@ -227,7 +227,7 @@ const DoctorRegistry = () => {
               className="block font-bold text-white"
               htmlFor="doctorAddress"
             >
-              Wallet Public Address
+            Doctor Private Address
             </label>
             <input
               id="doctorAddress"
@@ -235,7 +235,7 @@ const DoctorRegistry = () => {
               type="text"
               required
               className="mt-2 p-2 w-full text-white bg-gray-700 border border-gray-600 rounded-md hover:bg-gray-800 transition duration-200"
-              placeholder="Crypto Wallet's Public Address"
+              placeholder="Doctor Private Address"
               value={doctorAddress}
               onChange={(e) => setDoctorAddress(e.target.value)}
             />
@@ -346,17 +346,17 @@ const DoctorRegistry = () => {
           </div>
             
           <div className="mb-4">
-            <label className="block font-bold text-white" htmlFor="hhNumber">
-              HH Number
+            <label className="block font-bold text-white" htmlFor="idNumber">
+              ID Number
             </label>
             <input
-              id="hhNumber"
-              name="hhNumber"
+              id="idNumber"
+              name="idNumber"
               type="text"
               required
               className={`mt-2 p-2 w-full text-white bg-gray-700 border border-gray-600 rounded-md hover-bg-gray-800 transition duration-200 ${hhNumberError && "border-red-500"}`}
-              placeholder="Enter your HH Number"
-              value={hhNumber}
+              placeholder="Enter your ID Number"
+              value={idNumber}
               onChange={handlehhNumberChange}
             />
             {hhNumberError && (

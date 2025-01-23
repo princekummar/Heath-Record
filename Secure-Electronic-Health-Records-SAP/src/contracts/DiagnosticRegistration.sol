@@ -8,24 +8,24 @@ contract DiagnosticRegistration {
         string hospitalName;
         string diagnosticLocation;
         string email;
-        string hhNumber;
+        string idNumber;
         string password;
     }
 
     mapping(string => address) private diagnosticAddresses;
     mapping(string => Diagnostic) private diagnostics;
 
-    event DiagnosticRegistered(string hhNumber, string diagnosticName, address walletAddress);
+    event DiagnosticRegistered(string idNumber, string diagnosticName, address walletAddress);
 
     function registerDiagnostic(
         string memory _diagnosticName,
         string memory _hospitalName,
         string memory _diagnosticLocation,
         string memory _email,
-        string memory _hhNumber,
+        string memory _idNumber,
         string memory _password
     ) external {
-        require(diagnosticAddresses[_hhNumber] == address(0), "Diagnostic already registered");
+        require(diagnosticAddresses[_idNumber] == address(0), "Diagnostic already registered");
 
         Diagnostic memory newDiagnostic = Diagnostic({
             walletAddress: msg.sender,
@@ -33,28 +33,28 @@ contract DiagnosticRegistration {
             hospitalName: _hospitalName,
             diagnosticLocation: _diagnosticLocation,
             email: _email,
-            hhNumber: _hhNumber,
+            idNumber: _idNumber,
             password: _password
         });
 
-        diagnostics[_hhNumber] = newDiagnostic;
-        diagnosticAddresses[_hhNumber] = msg.sender;
-        emit DiagnosticRegistered(_hhNumber, _diagnosticName, msg.sender);
+        diagnostics[_idNumber] = newDiagnostic;
+        diagnosticAddresses[_idNumber] = msg.sender;
+        emit DiagnosticRegistered(_idNumber, _diagnosticName, msg.sender);
     }
 
-    function isRegisteredDiagnostic(string memory _hhNumber) external view returns (bool) {
-        return diagnosticAddresses[_hhNumber] != address(0);
+    function isRegisteredDiagnostic(string memory _idNumber) external view returns (bool) {
+        return diagnosticAddresses[_idNumber] != address(0);
     }
 
-    function getDiagnosticDetails(string memory _hhNumber) external view returns (
+    function getDiagnosticDetails(string memory _idNumber) external view returns (
         address _walletAddress,
         string memory _diagnosticName,
         string memory _hospitalName,
         string memory _diagnosticLocation,
         string memory _email
     ) {
-        require(diagnosticAddresses[_hhNumber] != address(0), "Diagnostic not registered");
-        Diagnostic memory diagnostic = diagnostics[_hhNumber];
+        require(diagnosticAddresses[_idNumber] != address(0), "Diagnostic not registered");
+        Diagnostic memory diagnostic = diagnostics[_idNumber];
         return (
             diagnostic.walletAddress,
             diagnostic.diagnosticName,
@@ -64,8 +64,8 @@ contract DiagnosticRegistration {
         );
     }
 
-    function validatePassword(string memory _hhNumber, string memory _password) external view returns (bool) {
-        require(diagnosticAddresses[_hhNumber] != address(0), "Diagnostic not registered");
-        return keccak256(abi.encodePacked(_password)) == keccak256(abi.encodePacked(diagnostics[_hhNumber].password));
+    function validatePassword(string memory _idNumber, string memory _password) external view returns (bool) {
+        require(diagnosticAddresses[_idNumber] != address(0), "Diagnostic not registered");
+        return keccak256(abi.encodePacked(_password)) == keccak256(abi.encodePacked(diagnostics[_idNumber].password));
     }
 }

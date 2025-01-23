@@ -7,21 +7,21 @@ import NavBar from "./NavBar";
 
 const DoctorLogin = () => {
   const navigate = useNavigate();
-  const [hhNumberError, sethhNumberError] = useState("");
-  const [hhNumber, sethhNumber] = useState("");
+  const [idNumberError, setidNumberError] = useState("");
+  const [idNumber, setidNumber] = useState("");
   const [password, setPassword] = useState("");
   const [isRegistered, setIsRegistered] = useState(false);
   const [doctorDetails, setDoctorDetails] = useState(null);
 
-  const handlehhNumberChange = (e) => {
-    const inputhhNumber = e.target.value;
+  const handleidNumberChange = (e) => {
+    const inputidNumber = e.target.value;
     const phoneRegex = /^\d{6}$/;
-    if (phoneRegex.test(inputhhNumber)) {
-      sethhNumber(inputhhNumber);
-      sethhNumberError("");
+    if (phoneRegex.test(inputidNumber)) {
+      setidNumber(inputidNumber);
+      setidNumberError("");
     } else {
-      sethhNumber(inputhhNumber);
-      sethhNumberError("Please enter a 6-digit HH Number.");
+      setidNumber(inputidNumber);
+      setidNumberError("Please enter a 6-digit ID Number.");
     }
   };
 
@@ -36,21 +36,21 @@ const DoctorLogin = () => {
       );
 
       const isRegisteredResult = await contract.methods
-        .isRegisteredDoctor(hhNumber)
+        .isRegisteredDoctor(idNumber)
         .call();
       setIsRegistered(isRegisteredResult);
 
       if (isRegisteredResult) {
         const isValidPassword = await contract.methods
-          .validatePassword(hhNumber, password)
+          .validatePassword(idNumber, password)
           .call();
 
         if (isValidPassword) {
           const doctor = await contract.methods
-            .getDoctorDetails(hhNumber)
+            .getDoctorDetails(idNumber)
             .call();
           setDoctorDetails(doctor);
-          navigate("/doctor/" + hhNumber);
+          navigate("/doctor/" + idNumber);
         } else {
           alert("Incorrect password");
         }
@@ -74,21 +74,21 @@ const DoctorLogin = () => {
         <div className="w-full max-w-4xl bg-gray-900 p-20 rounded-lg shadow-lg">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Doctor Login</h2>
           <div className="mb-4">
-            <label className="block font-bold text-white" htmlFor="hhNumber">
-              HH Number
+            <label className="block font-bold text-white" htmlFor="idNumber">
+              ID Number
             </label>
             <input
-              id="hhNumber"
-              name="hhNumber"
+              id="idNumber"
+              name="idNumber"
               type="text"
               required
-              className={`mt-2 p-2 w-full text-white bg-gray-700 border border-gray-600 rounded-md hover-bg-gray-800 transition duration-200 ${hhNumberError && "border-red-500"}`}
-              placeholder="HH Number"
-              value={hhNumber}
-              onChange={handlehhNumberChange}
+              className={`mt-2 p-2 w-full text-white bg-gray-700 border border-gray-600 rounded-md hover-bg-gray-800 transition duration-200 ${idNumberError && "border-red-500"}`}
+              placeholder="ID Number"
+              value={idNumber}
+              onChange={handleidNumberChange}
             />
-            {hhNumberError && (
-              <p className="text-red-500 text-sm mt-1">{hhNumberError}</p>
+            {idNumberError && (
+              <p className="text-red-500 text-sm mt-1">{idNumberError}</p>
             )}
           </div>
 

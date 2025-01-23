@@ -12,8 +12,8 @@ const DiagnosticRegistry = () => {
   const [diagnosticName, setDiagnosticName] = useState("");
   const [hospitalName, setHospitalName] = useState("");
   const [diagnosticLocation, setDiagnosticLocation] = useState("");
-  const [hhNumber, sethhNumber] = useState("");
-  const [hhNumberError, sethhNumberError] = useState("");
+  const [idNumber, setidNumber] = useState("");
+  const [idNumberError, setidNumberError] = useState("");
   const [password, setPassword] = useState(""); // Define password state variable
   const [passwordError, setPasswordError] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -58,7 +58,7 @@ const DiagnosticRegistry = () => {
       !hospitalName ||
       !diagnosticLocation ||
       !email ||
-      !hhNumber ||
+      !idNumber ||
       !password ||
       !confirmPassword
     ) {
@@ -108,7 +108,7 @@ const DiagnosticRegistry = () => {
       );
 
       const isRegDoc = await contract.methods
-        .isRegisteredDiagnostic(hhNumber)
+        .isRegisteredDiagnostic(idNumber)
         .call();
 
       if (isRegDoc) {
@@ -122,7 +122,7 @@ const DiagnosticRegistry = () => {
           hospitalName,
           diagnosticLocation,
           email,
-          hhNumber,
+          idNumber,
           password // Include password in the function call
         )
         .send({ from: diagnosticAddress });
@@ -140,15 +140,15 @@ const DiagnosticRegistry = () => {
     setEmail(inputEmail);
   };
 
-    const handlehhNumberChange = (e) => {
-      const inputhhNumber = e.target.value;
+    const handleidNumberChange = (e) => {
+      const inputidNumber = e.target.value;
       const phoneRegex = /^\d{6}$/;
-      if (phoneRegex.test(inputhhNumber)) {
-        sethhNumber(inputhhNumber);
-        sethhNumberError("");
+      if (phoneRegex.test(inputidNumber)) {
+        setidNumber(inputidNumber);
+        setidNumberError("");
       } else {
-        sethhNumber(inputhhNumber);
-        sethhNumberError("Please enter a 6-digit HH Number.");
+        setidNumber(inputidNumber);
+        setidNumberError("Please enter a 6-digit ID Number.");
       }
   };
   
@@ -181,7 +181,7 @@ const DiagnosticRegistry = () => {
               className="block font-bold text-white"
               htmlFor="diagnosticAddress"
             >
-              Wallet Public Address
+              Diagnosis Private Address
             </label>
             <input
               id="diagnosticAddress"
@@ -189,7 +189,7 @@ const DiagnosticRegistry = () => {
               type="text"
               required
               className="mt-2 p-2 w-full text-white bg-gray-700 border border-gray-600 rounded-md hover:bg-gray-800 transition duration-200"
-              placeholder="Crypto Wallet Public Address"
+              placeholder="Diagnosis Private Address"
               value={diagnosticAddress}
               onChange={(e) => setDiagnosticAddress(e.target.value)}
             />
@@ -265,21 +265,21 @@ const DiagnosticRegistry = () => {
           </div>
             
           <div className="mb-4">
-            <label className="block font-bold text-white" htmlFor="hhNumber">
-              HH Number
+            <label className="block font-bold text-white" htmlFor="idNumber">
+              ID Number
             </label>
             <input
-              id="hhNumber"
-              name="hhNumber"
+              id="idNumber"
+              name="idNumber"
               type="text"
               required
-              className={`mt-2 p-2 w-full text-white bg-gray-700 border border-gray-600 rounded-md hover-bg-gray-800 transition duration-200 ${hhNumberError && "border-red-500"}`}
-              placeholder="HH Number"
-              value={hhNumber}
-              onChange={handlehhNumberChange}
+              className={`mt-2 p-2 w-full text-white bg-gray-700 border border-gray-600 rounded-md hover-bg-gray-800 transition duration-200 ${idNumberError && "border-red-500"}`}
+              placeholder="ID Number"
+              value={idNumber}
+              onChange={handleidNumberChange}
             />
-            {hhNumberError && (
-              <p className="text-red-500 text-sm mt-1">{hhNumberError}</p>
+            {idNumberError && (
+              <p className="text-red-500 text-sm mt-1">{idNumberError}</p>
             )}
           </div>
 

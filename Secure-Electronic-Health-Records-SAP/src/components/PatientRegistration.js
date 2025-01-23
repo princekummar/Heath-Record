@@ -12,8 +12,8 @@ const PatientRegistry = () => {
   const [isRegistered, setIsRegistered] = useState(false);
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [homeAddress, setHomeAddress] = useState("");
-  const [hhNumber, sethhNumber] = useState("");
-  const [hhNumberError, sethhNumberError] = useState("");
+  const [idNumber, setidNumber] = useState("");
+  const [idNumberError, setidNumberError] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
   const [gender, setGender] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -60,7 +60,7 @@ const PatientRegistry = () => {
       !name ||
       !dateOfBirth ||
       !homeAddress ||
-      !hhNumber ||
+      !idNumber ||
       !gender ||
       !bg ||
       !email ||
@@ -75,7 +75,7 @@ const PatientRegistry = () => {
       return;
     }
 
-    if (hhNumber.length !== 6) {
+    if (idNumber.length !== 6) {
       alert(
         "You have entered a wrong HH Number. Please enter a 6-digit HH Number."
       );
@@ -130,7 +130,7 @@ const PatientRegistry = () => {
       );
 
       const isRegPatient = await contract.methods
-        .isRegisteredPatient(hhNumber)
+        .isRegisteredPatient(idNumber)
         .call();
 
       if (isRegPatient) {
@@ -147,7 +147,7 @@ const PatientRegistry = () => {
         bg,
         homeAddress,
         email,
-        hhNumber,
+        idNumber,
         password
       )
       .send({ from: walletAddress });
@@ -176,15 +176,15 @@ const PatientRegistry = () => {
     setConfirmPasswordError("");
   };
 
-  const handlehhNumberChange = (e) => {
-    const inputhhNumber = e.target.value;
+  const handleidNumberChange = (e) => {
+    const inputidNumber = e.target.value;
     const phoneRegex = /^\d{6}$/;
-    if (phoneRegex.test(inputhhNumber)) {
-      sethhNumber(inputhhNumber);
-      sethhNumberError("");
+    if (phoneRegex.test(inputidNumber)) {
+      setidNumber(inputidNumber);
+      setidNumberError("");
     } else {
-      sethhNumber(inputhhNumber);
-      sethhNumberError("Please enter a 6-digit HH Number.");
+      setidNumber(inputidNumber);
+      setidNumberError("Please enter a 6-digit ID Number.");
     }
   };
 
@@ -206,13 +206,13 @@ const PatientRegistry = () => {
               className="block font-bold text-white"
               htmlFor="walletAddress"
             >
-              Wallet Public Address
+               Patient Private Address
             </label>
             <input
               type="text"
               id="walletAddress"
               name="walletAddress"
-              placeholder="Crypto Wallet's Public Address"
+              placeholder="Patient Private Address"
               value={walletAddress}
               onChange={(e) => setWalletAddress(e.target.value)}
               className="mt-2 p-2 w-full text-white bg-gray-700 border border-gray-600 rounded-md hover:bg-gray-800 transition duration-200"
@@ -307,21 +307,21 @@ const PatientRegistry = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block font-bold text-white" htmlFor="hhNumber">
-              HH Number
+            <label className="block font-bold text-white" htmlFor="idNumber">
+              ID Number
             </label>
             <input
-              id="hhNumber"
-              name="hhNumber"
+              id="idNumber"
+              name="idNumber"
               type="text"
               required
-              className={`mt-2 p-2 w-full text-white bg-gray-700 border border-gray-600 rounded-md hover-bg-gray-800 transition duration-200 ${hhNumberError && "border-red-500"}`}
-              placeholder="Enter your HH Number"
-              value={hhNumber}
-              onChange={handlehhNumberChange}
+              className={`mt-2 p-2 w-full text-white bg-gray-700 border border-gray-600 rounded-md hover-bg-gray-800 transition duration-200 ${idNumberError && "border-red-500"}`}
+              placeholder="Enter your ID Number"
+              value={idNumber}
+              onChange={handleidNumberChange}
             />
-            {hhNumberError && (
-              <p className="text-red-500 text-sm mt-1">{hhNumberError}</p>
+            {idNumberError && (
+              <p className="text-red-500 text-sm mt-1">{idNumberError}</p>
             )}
           </div>
           

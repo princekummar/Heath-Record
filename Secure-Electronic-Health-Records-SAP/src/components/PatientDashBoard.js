@@ -6,16 +6,16 @@ import NavBar_Logout from "./NavBar_Logout";
 import PatientRegistration from "../build/contracts/PatientRegistration.json";
 
 const PatientDashBoard = () => {
-  const { hhNumber } = useParams(); // Retrieve the hhNumber from the URL parameter
+  const { idNumber } = useParams(); // Retrieve the hhNumber from the URL parameter
 
   const navigate = useNavigate();
   
   const viewRecord = () => {
-    navigate("/patient/" + hhNumber + "/viewrecords");
+    navigate("/patient/" + idNumber + "/viewrecords");
   };
 
   const viewprofile = () => {
-    navigate("/patient/" + hhNumber + "/viewprofile");
+    navigate("/patient/" + idNumber + "/viewprofile");
   };
   
 
@@ -38,7 +38,7 @@ const PatientDashBoard = () => {
           deployedNetwork && deployedNetwork.address,
         );
         setContract(contractInstance);
-        setPatientPhoneNo(hhNumber);
+        setPatientPhoneNo(idNumber);
         try {
           const result = await contractInstance.methods.getPatientDetails(patientPhoneNo).call();
           setPatientDetails(result);
