@@ -11,7 +11,10 @@ Testing Frameworks: Truffle (for testing Solidity contracts)<br>
 Version Control: Git<br>
 Development Environment: Node.js<br>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 123f5a5999e3e5e8a73f54ec76110b86ef3f04ef
 Screenshots : 
 
 HomePage :
@@ -81,7 +84,11 @@ Report has been reflected in record viewer so that both patient and doctor can s
 
 
 contact : 
+<<<<<<< HEAD
 [Mail](mailto:pk0801281@mail.com?Subject=DrD-blockchain&Body=Hi,)
+=======
+[Mail](mailto:pk0801281@mail.com?Subject=ehr-blockchain&Body=Hi,)
+>>>>>>> 123f5a5999e3e5e8a73f54ec76110b86ef3f04ef
 `pk0801281@mail.com`
 
 🆁🅴🆀🆄🅸🆁🅴🅼🅴🅽🆃🆂
