@@ -5,15 +5,15 @@ import NavBar_Logout from "./NavBar_Logout";
 import PatientRegistration from "../build/contracts/PatientRegistration.json";
 
 const DoctorViewPatient = () => {
-  const { hhNumber } = useParams(); // Retrieve the hhNumber from the URL parameter
+  const { idNumber } = useParams(); // Retrieve the idNumber from the URL parameter
   const navigate = useNavigate();
 
   const doctorForm = () => {
-    navigate("/doctor/"+hhNumber+"/doctorform");
+    navigate("/doctor/"+idNumber+"/doctorform");
   };
 
   const viewPatientRecords = () => {
-    navigate("/patient/"+hhNumber+"/viewrecords");
+    navigate("/patient/"+idNumber+"/viewrecords");
   };
 
   const [web3, setWeb3] = useState(null);
@@ -35,7 +35,7 @@ const DoctorViewPatient = () => {
         );
         setContract(contractInstance);
         try {
-          const result = await contractInstance.methods.getPatientDetails(hhNumber).call();
+          const result = await contractInstance.methods.getPatientDetails(idNumber).call();
           setPatientDetails(result);
         } catch (error) {
           console.error('Error retrieving patient details:', error);
@@ -48,7 +48,7 @@ const DoctorViewPatient = () => {
     };
 
     init();
-  }, [hhNumber]);
+  }, [idNumber]);
 
   const cancelOperation = () => {
     navigate(-1);

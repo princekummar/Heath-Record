@@ -5,7 +5,7 @@ import NavBar_Logout from "./NavBar_Logout";
 import DoctorRegistration from "../build/contracts/DoctorRegistration.json";
 
 const DoctorDashBoardPage = () => {
-  const { hhNumber } = useParams();
+  const { idNumber } = useParams();
   const navigate = useNavigate();
   const [contract, setContract] = useState(null);
   const [doctorDetails, setDoctorDetails] = useState(null);
@@ -13,11 +13,11 @@ const DoctorDashBoardPage = () => {
 
   
   const viewPatientList = () => {
-    navigate("/doctor/"+hhNumber+"/patientlist");
+    navigate("/doctor/"+idNumber+"/patientlist");
   };
 
   const viewDoctorProfile = () => {
-    navigate("/doctor/"+hhNumber+"/viewdoctorprofile");
+    navigate("/doctor/"+idNumber+"/viewdoctorprofile");
   };
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const DoctorDashBoardPage = () => {
           setContract(contractInstance);
 
           // Call the getDoctorDetails function of the smart contract
-          const result = await contractInstance.methods.getDoctorDetails(hhNumber).call();
+          const result = await contractInstance.methods.getDoctorDetails(idNumber).call();
           setDoctorDetails(result);
         } catch (error) {
           console.error('Error initializing Web3 or fetching doctor details:', error);
@@ -48,7 +48,7 @@ const DoctorDashBoardPage = () => {
     };
 
     init();
-  }, [hhNumber]);
+  }, [idNumber]);
 
   return (
     <div>
