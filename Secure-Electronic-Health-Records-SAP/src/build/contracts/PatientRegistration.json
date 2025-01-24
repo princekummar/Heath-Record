@@ -48,8 +48,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -68,8 +67,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -128,8 +126,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -201,8 +198,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -226,8 +222,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -276,8 +271,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -324,8 +318,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -356,8 +349,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"idNumber\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"walletAddress\",\"type\":\"address\"}],\"name\":\"PatientRegistered\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"doctorPermissions\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_idNumber\",\"type\":\"string\"}],\"name\":\"getPatientDetails\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"walletAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"dateOfBirth\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"gender\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"bloodGroup\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"homeAddress\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_doctorNumber\",\"type\":\"string\"}],\"name\":\"getPatientList\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"patient_number\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"patient_name\",\"type\":\"string\"}],\"internalType\":\"struct PatientRegistration.PatientList[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_patientNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_doctorNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_patientName\",\"type\":\"string\"}],\"name\":\"grantPermission\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"isPatientRegistered\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_patientNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_doctorNumber\",\"type\":\"string\"}],\"name\":\"isPermissionGranted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_idNumber\",\"type\":\"string\"}],\"name\":\"isRegisteredPatient\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"patients\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"walletAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"dateOfBirth\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"gender\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"bloodGroup\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"homeAddress\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"idNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"password\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_walletAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_dateOfBirth\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_gender\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_bloodGroup\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_homeAddress\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_idNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_password\",\"type\":\"string\"}],\"name\":\"registerPatient\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_idNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_password\",\"type\":\"string\"}],\"name\":\"validatePassword\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/PatientRegistration.sol\":\"PatientRegistration\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/PatientRegistration.sol\":{\"keccak256\":\"0xf44b3814c2c5756b7b032cd228533f3eb208f20aa799ae3d0bc4d50d16525002\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://daa647e692a80ea76667f8d19442feebaeec656d3b53f06c414c81e13ed5cf53\",\"dweb:/ipfs/QmQ6Gw1VprCLFEbiyU6Kgn978L1A22UQtVAX9jiceoN8nT\"]}},\"version\":1}",
@@ -18439,8 +18431,7 @@
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-01-23T21:51:38.243Z",
-  "networkType": "ethereum",
+  "updatedAt": "2025-01-24T03:13:43.758Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
