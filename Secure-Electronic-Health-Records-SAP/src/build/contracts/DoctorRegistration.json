@@ -20105,12 +20105,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x15F9b75F2d153dFd44567B6590b67FDeCecD3aCc",
-      "transactionHash": "0xa2b63852a51f89312af6d564f0a3e0b678e35b9d62f7311c129f188675e1ed8e"
+      "address": "0x54bE45985a26597B76639227DebE2B14D563545F",
+      "transactionHash": "0x32e743d375cfbf63e1de47c4b3ed2281ea4a6898725e9917f105e460d712ae7e"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-01-23T21:20:58.209Z",
+  "updatedAt": "2025-01-23T21:51:38.011Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

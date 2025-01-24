@@ -18434,12 +18434,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x24CF0c30C6d8F279Af06CE499c0D4C6c7453e23f",
-      "transactionHash": "0x046098565527a373d139ee424a01f8242a1e7d61a66e1142e0333d2b71be3482"
+      "address": "0x4aa9D686fADc2E20516FfA8Bd6907E2dCC83de06",
+      "transactionHash": "0x83d129f8ded0b049fa28aced9393f0ec1f17c807e27d897d2fccad000b7f5ac7"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-01-23T21:20:58.390Z",
+  "updatedAt": "2025-01-23T21:51:38.243Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
